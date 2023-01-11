@@ -29,4 +29,4 @@ index 02f6b6bd6a17..479734d89582 100644
 +	printk(KERN_ERR "\n##### Lazaro Carrio (UFID: 3781-0524) Gator Nation! #####\n");
  	if (ramdisk_execute_command) {
  		ret = run_init_process(ramdisk_execute_command);
- 		if (!ret)
+}}
