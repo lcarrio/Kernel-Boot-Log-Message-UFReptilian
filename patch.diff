@@ -1,0 +1,32 @@
+diff --git a/init/main.c b/init/main.c
+index 02f6b6bd6a17..479734d89582 100644
+--- a/init/main.c
++++ b/init/main.c
+@@ -1091,7 +1091,6 @@ static inline void mark_readonly(void)
+ static int __ref kernel_init(void *unused)
+ {
+ 	int ret;
+-
+ 	kernel_init_freeable();
+ 	/* need to finish all async __init code before freeing the memory */
+ 	async_synchronize_full();
+@@ -1099,18 +1098,15 @@ static int __ref kernel_init(void *unused)
+ 	jump_label_invalidate_initmem();
+ 	free_initmem();
+ 	mark_readonly();
+-
+ 	/*
+ 	 * Kernel mappings are now finalized - update the userspace page-table
+ 	 * to finalize PTI.
+ 	 */
+ 	pti_finalize();
+-
+ 	system_state = SYSTEM_RUNNING;
+ 	numa_default_policy();
+-
+ 	rcu_end_inkernel_boot();
+-
++	printk(KERN_ERR "\n##### Lazaro Carrio (UFID: 3781-0524) Gator Nation! #####\n");
+ 	if (ramdisk_execute_command) {
+ 		ret = run_init_process(ramdisk_execute_command);
+ 		if (!ret)
